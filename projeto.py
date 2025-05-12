@@ -22,5 +22,9 @@ def pot(a,b):
     resultado = a ** b
     return resultado
     
+def raiz(a,b):
+    resultado = a ** (1/b)
+    return resultado
+
 n1 = int(input('Digite o primeiro número: '))
 n2 = int(input('Digite o segundo número: '))
