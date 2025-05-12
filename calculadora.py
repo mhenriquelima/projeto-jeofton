@@ -26,5 +26,18 @@ def raiz(a,b):
     resultado = a ** (1/b)
     return resultado
 
-n1 = int(input('Digite o primeiro número: '))
-n2 = int(input('Digite o segundo número: '))
+def is_input_float(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print('insira um número válido.')
+def is_input_integer(prompt):
+    while True:
+        try:
+            return int(input(prompt))
+        except ValueError:
+            print('insira um número válido.')
+            
+
+
