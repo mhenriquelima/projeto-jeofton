@@ -39,5 +39,6 @@ def is_input_integer(prompt):
         except ValueError:
             print('insira um número válido.')
             
-
+n1 = is_input_float('Digite o primeiro número > ')
+n2 = is_input_float('Digite o segundo número > ')
 
