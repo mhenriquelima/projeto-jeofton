@@ -1,13 +1,16 @@
 def soma(a,b):
     resultado = a + b
+    historico.append(f'{n1} + {n2} = {resultado}')
     return resultado
 
 def sub(a,b):
     resultado = a - b
+    historico.append(f'{n1} - {n2} = {resultado}')
     return resultado
 
 def mult(a,b):
     resultado = a * b
+    historico.append(f'{n1} * {n2} = {resultado}')
     return resultado
 
 def div(a,b):
@@ -16,14 +19,17 @@ def div(a,b):
         return resultado
     else:
         resultado = a / b
+        historico.append(f'{n1} / {n2} = {resultado}')
         return resultado
     
 def pot(a,b):
     resultado = a ** b
+    historico.append(f'{n1} ^ {n2} = {resultado}')
     return resultado
     
 def raiz(a,b):
     resultado = a ** (1/b)
+    historico.append(f'{n2}√ {n1} = {resultado}')
     return resultado
 
 def is_input_float(prompt):
@@ -48,7 +54,12 @@ Bem vindo a calculadora
     4 - Divisão
     5 - Potenciação
     6 - Raiz
+    7 - Histórico                                 
 > ''')
+
+historico = []
+n1 = 0
+n2= 0
 
 if 1 <= selected_operation <= 6:
     n1 = is_input_float('Digite o primeiro número > ')
@@ -64,3 +75,13 @@ if 1 <= selected_operation <= 6:
     }
     resultado = operations[selected_operation](n1, n2)
     print(f'O resultado é: {resultado}')
+
+elif selected_operation == 7:
+        print(historico)
+        if input('Deseja apagar o histórico? [0] > ') == '0':
+            historico.clear()
+            print('Histórico apagado.')
+        else:
+            print('Histórico mantido.')
+else:
+        print('Opção inválida.')
