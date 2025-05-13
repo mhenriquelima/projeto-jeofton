@@ -39,9 +39,6 @@ def is_input_integer(prompt):
         except ValueError:
             print('insira um número válido.')
             
-n1 = is_input_float('Digite o primeiro número > ')
-n2 = is_input_float('Digite o segundo número > ')
-
 selected_operation = is_input_integer('''
 Bem vindo a calculadora
     Escolha uma opção:
@@ -52,3 +49,18 @@ Bem vindo a calculadora
     5 - Potenciação
     6 - Raiz
 > ''')
+
+if 1 <= selected_operation <= 6:
+    n1 = is_input_float('Digite o primeiro número > ')
+    n2 = is_input_float('Digite o segundo número > ')
+    
+    operations = {
+        1: soma,
+        2: sub,
+        3: mult,
+        4: div,
+        5: pot,
+        6: raiz
+    }
+    resultado = operations[selected_operation](n1, n2)
+    print(f'O resultado é: {resultado}')
