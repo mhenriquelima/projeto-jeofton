@@ -42,3 +42,13 @@ def is_input_integer(prompt):
 n1 = is_input_float('Digite o primeiro número > ')
 n2 = is_input_float('Digite o segundo número > ')
 
+selected_operation = is_input_integer('''
+Bem vindo a calculadora
+    Escolha uma opção:
+    1 - Soma
+    2 - Subtração   
+    3 - Multiplicação
+    4 - Divisão
+    5 - Potenciação
+    6 - Raiz
+> ''')
