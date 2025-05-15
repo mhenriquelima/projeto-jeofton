@@ -28,8 +28,13 @@ def pot(a,b):
     return resultado
 
 def raiz(a,b):
-    resultado = a ** (1/b)
-    historico.append(f'{n2}√ {n1} = {resultado}')
+    if b == 0:
+        resultado = 'Operação inválida.'
+    elif a < 0 and b % 2 == 0:
+        resultado = 'Operação inválida.'
+    else:
+        resultado = a ** (1 / b)
+        historico.append(f'{n2}√ {n1} = {resultado}')
     return resultado
         
 def is_input_float(prompt):
