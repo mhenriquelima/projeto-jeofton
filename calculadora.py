@@ -34,21 +34,38 @@ def raiz(a,b):
         
 def is_input_float(prompt):
     while True:
+        user_input = input(prompt)
+        if user_input.upper() == 'R':
+            reset_calculator()
+            return None
         try:
-            return float(input(prompt))
+            return float(user_input)
         except ValueError:
             print('insira um número válido.')
+
 def is_input_integer(prompt):
     while True:
+        user_input = input(prompt)
+        if user_input.upper() == 'R':
+            reset_calculator()
+            return None
         try:
-            return int(input(prompt))
+            return int(user_input)
         except ValueError:
             print('insira um número válido.')
+
+def reset_calculator():
+    global historico, n1, n2, is_running
+    print('Calculadora reiniciada.')
+    historico.clear()
+    n1 = 0
+    n2 = 0
+    is_running = True
 
 is_running = True
 historico = []
 n1 = 0
-n2= 0
+n2 = 0
 
 while is_running == True:
     selected_operation = is_input_integer('''
@@ -63,10 +80,16 @@ while is_running == True:
         7 - Histórico
         8 - Sair
 > ''')
+    if selected_operation is None:
+        continue
 
     if 1 <= selected_operation <= 6:
         n1 = is_input_float('Digite o primeiro número > ')
+        if n1 is None:
+            continue
         n2 = is_input_float('Digite o segundo número > ')
+        if n2 is None:
+            continue
         
         operations = {
             1: soma,
@@ -89,4 +112,4 @@ while is_running == True:
         is_running = False
         print('Programa encerrado.')
     else:
-        print('Opção inválida.')
+        print('Opção inválida.')
